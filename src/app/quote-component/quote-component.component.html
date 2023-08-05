@@ -1,0 +1,71 @@
+<app-header-logout></app-header-logout>
+<div>
+  <button class="btn" mat-raised-button (click)="openAddQuoteDialog()">Add Quote</button>
+    
+  <mat-form-field appearance="fill" class="float-right">
+    <mat-label>Search Quote</mat-label>
+    <input matInput [(ngModel)]="searchTerm" placeholder="Search Quote" />
+    <mat-icon class="search-icon" color="primary" matPrefix (click)="filterQuotes(searchTerm)">search</mat-icon>
+  </mat-form-field>
+</div>
+<!-- <mat-label>Order By</mat-label> -->
+<!-- <mat-select [(ngModel)]="orderByField" (selectionChange)="applyOrder()">
+    <mat-option *ngFor="let field of orderByFields" [value]="field">{{field}}</mat-option>
+</mat-select> -->
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
+    <ng-container matColumnDef="quoteID">
+      <th mat-header-cell mat-sort-header="QuoteID" *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let quote"> {{ quote?.QuoteID }} </td>
+
+    </ng-container>
+      
+    <ng-container matColumnDef="quoteType">
+      <th mat-header-cell mat-sort-header="QuoteType" *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let quote"> {{ quote?.QuoteType }} </td>
+    </ng-container>
+      
+    <ng-container matColumnDef="description">
+      <th mat-header-cell mat-sort-header="Description" *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let quote"> {{ quote?.Description }} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="dueDate">
+      <th mat-header-cell mat-sort-header="DueDate" *matHeaderCellDef> Due Date </th>
+      <td mat-cell *matCellDef="let quote"> {{ quote?.DueDate | date:'short' }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="premium">
+      <th mat-header-cell mat-sort-header="Premium" *matHeaderCellDef> Premium </th>
+      <td mat-cell *matCellDef="let quote"> {{ quote?.Premium | currency:'USD':'symbol':'1.2-2' }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="sales">
+        <th mat-header-cell mat-sort-header="Sales" *matHeaderCellDef> Sales </th>
+        <td mat-cell *matCellDef="let quote"> {{ quote?.Sales }} </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let quote">
+          <mat-icon class="icon" (click)="viewQuote(quote?.QuoteID)">visibility</mat-icon>
+          <mat-icon class="icon" (click)="editQuote(quote?.QuoteID)">edit</mat-icon>
+          <mat-icon class="icon" (click)="deleteQuote(quote?.QuoteID)">delete</mat-icon>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="['quoteID', 'quoteType', 'description', 'dueDate', 'premium', 'sales','actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['quoteID', 'quoteType', 'description', 'dueDate', 'premium', 'sales', 'actions']"></tr>
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="pageSizes" showFirstLastButtons>
+    </mat-paginator>
+    <style>
+      .float-right {
+        float: right;
+        height: 70px;
+        margin-right: 10px;
+      }
+
+      .btn{
+        margin-left: 10px;
+        background-color: green !important;
+      }
+
+    </style>

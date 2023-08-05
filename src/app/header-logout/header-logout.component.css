@@ -1,0 +1,9 @@
+.left{
+    margin-left: 10px;
+    color:  #2d5da7;
+}
+.right {
+    margin-left: auto;
+    margin-right: 10px;
+    background-color: red !important;
+  }

@@ -1,0 +1,13 @@
+<!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="spacer"></span>
+    <mat-tab><button mat-button routerLink="/login"></button>Login</mat-tab>
+    <mat-tab><button mat-button routerLink="/register"></button>Register</mat-tab>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+
+  <nav mat-tab-nav-bar [backgroundColor]="background" [tabPanel]="tabPanel">
+    <a mat-tab-link routerLink="/login" routerLinkActive="active-link">Login</a>
+    <a mat-tab-link routerLink="/register" routerLinkActive="active-link">Register</a>
+  </nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>

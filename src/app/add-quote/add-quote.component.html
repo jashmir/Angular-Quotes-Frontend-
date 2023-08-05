@@ -1,0 +1,39 @@
+<form [formGroup]="quoteForm" (submit)="onSubmit()">
+    <br>
+<h2 style="background-color: #2d5da7;"><strong>Add Quote</strong></h2>
+<mat-form-field style="margin-left: 10px; margin-right: 10px; display: block;">
+  <mat-select placeholder="Quote Type" formControlName="quoteType">
+    <mat-option value="Type1">Type1</mat-option>
+    <mat-option value="Type2">Type2</mat-option>
+    <mat-option value="Type3">Type3</mat-option>
+  </mat-select>
+  <mat-error *ngIf="quoteTypeControl!.hasError('required')">
+    QuoteType is required
+  </mat-error>
+</mat-form-field>
+  
+    <mat-form-field style="margin-left: 10px; margin-right: 10px; display: block;">
+      <input matInput placeholder="Description" formControlName="description">
+      <mat-error *ngIf="descriptionControl!.hasError('required')">Description is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field style="margin-left: 10px; margin-right: 10px; display: block;">
+      <input matInput [matDatepicker]="dueDatepicker" placeholder="Due Date" formControlName="dueDate">
+      <mat-datepicker-toggle matSuffix [for]="dueDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #dueDatepicker></mat-datepicker>
+      <mat-error *ngIf="dueDateControl!.hasError('required')">Due Date is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field style="margin-left: 10px; margin-right: 10px; display: block;">
+      <input matInput placeholder="Premium" formControlName="premium">
+      <mat-error *ngIf="premiumControl!.hasError('required')">Premium is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field style="margin-left: 10px; margin-right: 10px; display: block;">
+      <input matInput placeholder="Sales" formControlName="sales">
+      <mat-error *ngIf="salesControl!.hasError('required')">Sales is required</mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Add Quote</button>
+  </form>
+  

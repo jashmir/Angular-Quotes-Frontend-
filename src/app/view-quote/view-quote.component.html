@@ -1,0 +1,35 @@
+<app-header-logout></app-header-logout>
+<div class="quote-container">
+    <div class="quote-header">
+      <p><strong class="blue-bold">Quote ID:</strong> <span class="quote-value">{{ quote.QuoteID }}</span></p>
+      <p><strong class="blue-bold">Quote Type:</strong> <span class="quote-value">{{ quote.QuoteType }}</span></p>
+      <p><strong class="blue-bold">Description:</strong> <span class="quote-value">{{ quote.Description }}</span></p>
+      <p><strong class="blue-bold">Date:</strong> <span class="quote-value">{{ quote.DueDate | date }}</span></p>
+      <p><strong class="blue-bold">Premium:</strong> <span class="quote-value">{{ quote.Premium }}</span></p>
+      <p><strong class="blue-bold">Sales:</strong> <span class="quote-value">{{ quote.Sales }}</span></p>
+    </div>
+  </div>
+  
+  <style>
+    .quote-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .quote-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .blue-bold {
+      color: blue;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .quote-value {
+        margin-left: 20px;
+      font-size: 24px;
+    }
+  </style>
+  

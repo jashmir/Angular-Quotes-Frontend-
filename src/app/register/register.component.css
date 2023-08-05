@@ -1,0 +1,23 @@
+
+.register-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.register-card{
+  background-color: grey;
+  width: 500px;
+  height: 450px;
+  position: relative;
+  z-index: 0;
+}
+
+mat-form-field {
+  display: block;
+  margin-bottom: 16px;
+}

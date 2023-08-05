@@ -1,0 +1,15 @@
+/* navbar */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: darkslategray;
+  }
+  
+  .active-link {
+    background-color: blue;
+    border: 2px solid aqua;
+  }
+  
+  nav.mat-tab-nav-bar a.mat-tab-link {
+    color: black !important;
+  }

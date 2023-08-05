@@ -1,0 +1,15 @@
+// // Define a custom color palette
+// $my-custom-color: mat-palette($mat-blue-grey);
+
+// // Define a theme using the custom color palette
+// $my-theme: mat-light-theme((
+//   color: (
+//     primary: $my-custom-color,
+//     accent: $mat-deep-orange,
+//     warn: $mat-red
+//   )
+// ));
+
+// // Use the custom theme for your app
+// @include mat-core();
+// @include angular-material-theme($my-theme);
